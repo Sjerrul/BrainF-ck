@@ -1,11 +1,11 @@
-﻿using BrainFck;
-using BrainFck.Machine;
+﻿using Sjerrul.BrainFck.Machine;
+using Sjerrul.BrainFck.Machine.Parts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace CodeEval.DataRecovery
+namespace Sjerrul.Brainfck.ConsoleApplication
 {
     /*
         > - move to the next cell;
@@ -16,7 +16,7 @@ namespace CodeEval.DataRecovery
         , - input the value outside and store it in the current cell;
         [ - if the value of the current cell is zero, move forward on the text to the program to] taking into account nesting;
         ] - if the value of the current cell is not zero, go back on the text of the program to [considering nesting;
-     * */
+    */
     class Program
     {
 
@@ -33,11 +33,11 @@ namespace CodeEval.DataRecovery
                 return;
             }
 
+            BrainfuckMachine machine = new BrainfuckMachine(new ConsoleOutput(), new Tape());
+
             InputFile file = new InputFile(args[0]);
             string full = string.Concat(file);
-
-            BrainfuckMachine machine = new BrainfuckMachine(full);
-            machine.Run(new ConsoleOutput());
+            machine.Run(full);
 
             Console.ReadKey();
         }
@@ -46,12 +46,12 @@ namespace CodeEval.DataRecovery
 
         public class InputFile : IEnumerable<string>
         {
-            private IList<string> lines = new List<string>();
+            private readonly IList<string> lines = new List<string>();
 
             public InputFile(string fileName)
             {
-                var lines = File.ReadAllLines(fileName);
-                foreach (string line in lines)
+                var file = File.ReadAllLines(fileName);
+                foreach (string line in file)
                 {
                     this.lines.Add(line);
                 }

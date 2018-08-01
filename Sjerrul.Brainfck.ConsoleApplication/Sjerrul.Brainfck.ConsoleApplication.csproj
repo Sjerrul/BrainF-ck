@@ -7,8 +7,8 @@
     <ProjectGuid>{836F15E0-5B86-4692-8FC7-0FE4F72DAE03}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Brainfck</RootNamespace>
-    <AssemblyName>Brainfck</AssemblyName>
+    <RootNamespace>Sjerrul.Brainfck.ConsoleApplication</RootNamespace>
+    <AssemblyName>Sjerrul.Brainfck.ConsoleApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -57,9 +57,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BrainFck.Machine\BrainFck.Machine.csproj">
+    <ProjectReference Include="..\Sjerrul.Brainfck.Machine\Sjerrul.Brainfck.Machine.csproj">
       <Project>{bffa1280-70d2-4eef-90b4-9f903ac82d31}</Project>
-      <Name>BrainFck.Machine</Name>
+      <Name>Sjerrul.Brainfck.Machine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
